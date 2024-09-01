@@ -1,32 +1,32 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
-const postTask = new schema({
-    title:{
+const getUsers = new schema({
+    username:{
         type:String,
         required:true
     },
-    userId : {
-        type:schema.Types.ObjectId,
-        required:true,
-        ref:'User'
-    },
-    image:{
+    email : {
         type:String,
         required:true
     },
-    description:{
+    password:{
         type:String,
         required:true
     },
-    deadline:{
+    assignedTasks : {
+        type:Number,
+        default:0
+    },
+    role:{
         type:String,
+        default:"user",
         required:true
     },
     status:{
         type:String,
-        default:"In-Progress"
+        default:"Active"
     }
 },{timestamps:true})
 
-module.exports = mongoose.model('Tasks' , postTask)
+module.exports = mongoose.model('User' , getUsers)
